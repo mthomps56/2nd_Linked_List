@@ -33,6 +33,16 @@ class LinkedList
     self.head = Node.new(value, temp)
   end
 
+  def list_size(counter = 0)
+    return 0 if self.head.nil? 
+    current = self.head
+    while current
+      current = current.next_node
+      counter += 1
+    end
+    self.size = counter
+  end
+
   def traverse
     current = self.head
     size = self.size
@@ -48,4 +58,6 @@ list = LinkedList.new(42)
 list.append(13)
 list.prepend(1)
 list.traverse { | current, size | puts current.value }
+list.list_size
+puts list.size
 
