@@ -47,6 +47,17 @@ class LinkedList
     self.head.nil? ? (return nil) : (return self.head.value)
   end
 
+  def at(index)
+    current = self.head
+    counter = 0
+    while current
+      current = current.next_node
+      counter += 1
+      return current.value if counter.eql?(index)
+    end
+    return nil
+  end
+
   def traverse
     current = self.head
     while current
@@ -64,4 +75,5 @@ list.traverse { | current, size | puts current.value }
 list.list_size
 puts list.size
 puts list.show_head
+puts list.at(1)
 
