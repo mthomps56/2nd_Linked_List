@@ -49,9 +49,8 @@ class LinkedList
 
   def traverse
     current = self.head
-    size = self.size
     while current
-      info = yield current, size 
+      info = yield current
       current = current.next_node
     end
     return info
