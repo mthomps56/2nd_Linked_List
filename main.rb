@@ -28,6 +28,11 @@ class LinkedList
     end
   end
 
+  def prepend(value)
+    temp = self.head
+    self.head = Node.new(value, temp)
+  end
+
   def traverse
     current = self.head
     size = self.size
@@ -41,5 +46,6 @@ end
 
 list = LinkedList.new(42)
 list.append(13)
+list.prepend(1)
 list.traverse { | current, size | puts current.value }
 
