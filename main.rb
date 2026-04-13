@@ -8,22 +8,38 @@ class Node
 end
  
 class LinkedList
-  attr_accessor :head, :tail
+  attr_accessor :head, :tail, :size
 
   def initialize(value, tail = nil)
     @head = Node.new(value, tail)
     @tail = self.head
     @size = 1
+    self.head.next_node = self.tail
   end
 
   def append(value)
     node = Node.new(value)
-    self.head = node if self.head.nil?
     self.tail.next_node = node
     self.tail = self.tail.next_node
+ 
+    if self.head.nil?
+       self.head = node 
+       self.head.next_node = self.tail
+    end
+  end
+
+  def traverse
+    current = self.head
+    size = self.size
+    while current
+      info = yield current, size 
+      current = current.next_node
+    end
+    return info
   end
 end
 
 list = LinkedList.new(42)
-puts list.head.value
-puts list.tail.value
+list.append(13)
+list.traverse { | current, size | puts current.value }
+
