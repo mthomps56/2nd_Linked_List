@@ -43,6 +43,10 @@ class LinkedList
     self.size = counter
   end
 
+  def show_head
+    self.head.nil? ? (return nil) : (return self.head.value)
+  end
+
   def traverse
     current = self.head
     size = self.size
@@ -60,4 +64,5 @@ list.prepend(1)
 list.traverse { | current, size | puts current.value }
 list.list_size
 puts list.size
+puts list.show_head
 
