@@ -82,6 +82,15 @@ class LinkedList
     traverse(value) { | curr, val, count | return count if curr.value.eql?(val) }
   end
 
+  def to_s
+    current = self.head
+    while current
+      print "( #{current.value} ) -> "
+      current = current.next_node
+      print "nil" if current.nil?
+    end
+  end
+
 end
 
 list = LinkedList.new(42)
@@ -96,3 +105,7 @@ list.traverse { | current | puts current.value }
 puts; print list.contains(3)
 puts
 puts list.index(13)
+list.append(5923)
+list.append(234)
+list.append("hi")
+print list.to_s
