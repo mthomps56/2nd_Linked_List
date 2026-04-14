@@ -18,6 +18,5 @@ puts list.index(13)
 list.append(5923)
 list.append(234)
 list.append('hi')
-puts list
+list.to_s
 
-puts; puts; puts list.insert_at(1, 34, 526, 65)

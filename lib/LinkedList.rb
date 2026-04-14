@@ -103,12 +103,9 @@ class LinkedList
   def to_s
     current = head
     while current
-      unless current.nil?
-        print "( #{current.value} ) -> "
-        current = current.next_node
-      else
-        print 'nil' if current.nil?
-      end
+      print "( #{current.value} ) -> "
+      current = current.next_node
+      print 'nil' if current.nil?
     end
   end
 end
