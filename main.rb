@@ -77,6 +77,11 @@ class LinkedList
   def contains(value)
     return traverse(value) { | curr, val | curr.value.eql?(val) ? true : false }
   end
+
+  def index(value)
+    traverse(value) { | curr, val, count | return count if curr.value.eql?(val) }
+  end
+
 end
 
 list = LinkedList.new(42)
@@ -89,3 +94,5 @@ puts x
 puts; puts;
 list.traverse { | current | puts current.value }
 puts; print list.contains(3)
+puts
+puts list.index(13)
