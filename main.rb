@@ -65,10 +65,10 @@ class LinkedList
     return node.value
   end
 
-  def traverse
+  def traverse(value = nil)
     current = self.head
     while current
-      info = yield current
+      info = yield current, value, count = 0
       current = current.next_node
     end
     return info
