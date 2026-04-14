@@ -58,6 +58,13 @@ class LinkedList
     return nil
   end
 
+  def pop
+    return nil if self.head.nil?
+    node = self.head
+    self.head = self.head.next_node
+    return node.value
+  end
+
   def traverse
     current = self.head
     while current
@@ -71,9 +78,9 @@ end
 list = LinkedList.new(42)
 list.append(13)
 list.prepend(1)
-list.traverse { | current, size | puts current.value }
-list.list_size
-puts list.size
-puts list.show_head
-puts list.at(1)
-
+list.traverse { | current | puts current.value }
+x = list.pop
+puts; puts;
+puts x
+puts; puts;
+list.traverse { | current | puts current.value }
